@@ -1,0 +1,12 @@
+{
+  "name": "vibeconnect",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c magenta,cyan \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "render-build": "npm install --prefix server && npm install --include=dev --prefix client && npm run build --prefix client",
+    "start": "npm run build && npm start --prefix server"
+  },
+  "devDependencies": { "concurrently": "^9.0.1" }
+}
